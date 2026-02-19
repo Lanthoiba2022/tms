@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "TaskFlow - Task Management System",
   description:
     "A professional task management system to organize, track, and complete your tasks efficiently.",
+  icons: {
+    icon: "/logo.webp",
+  },
 };
 
 export default function RootLayout({

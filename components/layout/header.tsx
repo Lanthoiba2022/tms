@@ -12,6 +12,7 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import { LogOut, Menu, User } from "lucide-react";
+import Image from "next/image";
 import { Sidebar } from "./sidebar";
 import { useState } from "react";
 
@@ -45,9 +46,12 @@ export function Header() {
         </SheetContent>
       </Sheet>
 
-      <div className="flex-1">
-        <h1 className="text-lg font-semibold md:hidden">TaskFlow</h1>
+      <div className="flex items-center gap-2 md:hidden">
+        <Image src="/logo.webp" alt="TaskFlow logo" width={28} height={28} className="h-7 w-7 rounded-md" />
+        <h1 className="text-lg font-semibold">TaskFlow</h1>
       </div>
+
+      <div className="flex-1" />
 
       {/* User menu */}
       <DropdownMenu>
