@@ -123,4 +123,22 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Ensure date input placeholder (dd-mm-yyyy) is visible on mobile */
+  input[type="date"] {
+    color-scheme: light;
+    min-height: 2.5rem;
+  }
+  .dark input[type="date"] {
+    color-scheme: dark;
+  }
+  input[type="date"]::-webkit-date-and-time-value {
+    text-align: left;
+  }
+  input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    opacity: 1;
+  }
+  input[type="date"].date-empty::-webkit-datetime-edit {
+    color: var(--muted-foreground);
+  }
 }

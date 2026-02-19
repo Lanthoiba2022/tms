@@ -36,7 +36,9 @@ export function Sidebar({ onNavigate }: SidebarProps) {
         {NAV_ITEMS.map((item) => {
           const isActive =
             pathname === item.href ||
-            (item.href !== "/dashboard" && pathname.startsWith(item.href));
+            (item.href === "/tasks" &&
+              pathname.startsWith("/tasks/") &&
+              !pathname.startsWith("/tasks/new"));
 
           return (
             <Link

@@ -172,11 +172,12 @@ export function TaskForm({ task, mode }: TaskFormProps) {
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
               disabled={isSubmitting}
+              className={`min-w-0 ${!dueDate ? "date-empty" : ""}`}
             />
           </div>
         </CardContent>
 
-        <CardFooter className="flex justify-between">
+        <CardFooter className="flex justify-between pt-6">
           <Button
             type="button"
             variant="outline"
