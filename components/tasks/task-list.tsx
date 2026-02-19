@@ -76,7 +76,9 @@ export function TaskList() {
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Tasks</h2>
           <p className="text-sm text-muted-foreground">
-            {total} task{total !== 1 ? "s" : ""} total
+            {!isLoading && total > 0
+              ? `Showing ${tasks.length} of ${total} task${total !== 1 ? "s" : ""}`
+              : `${total} task${total !== 1 ? "s" : ""} total`}
           </p>
         </div>
         <Button asChild>
