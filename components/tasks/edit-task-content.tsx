@@ -66,7 +66,7 @@ export function EditTaskContent({ taskId }: EditTaskContentProps) {
   return (
     <div className="space-y-4">
       {/* Action bar above the form */}
-      <div className="max-w-2xl mx-auto flex items-center justify-between">
+      <div className="max-w-2xl mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm text-muted-foreground">Current status:</span>
           <Badge variant="secondary" className={STATUS_COLORS[task.status]}>
