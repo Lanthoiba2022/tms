@@ -70,30 +70,26 @@ export async function getAuthUser(
   return verifyAccessToken(token);
 }
 
-export function setRefreshTokenCookie(token: string) {
-  const cookieStore = cookies();
-  cookieStore.then((c) =>
-    c.set("refreshToken", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 7 * 24 * 60 * 60, // 7 days
-      path: "/",
-    })
-  );
+export async function setRefreshTokenCookie(token: string) {
+  const cookieStore = await cookies();
+  cookieStore.set("refreshToken", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 7 * 24 * 60 * 60, // 7 days
+    path: "/",
+  });
 }
 
-export function clearRefreshTokenCookie() {
-  const cookieStore = cookies();
-  cookieStore.then((c) =>
-    c.set("refreshToken", "", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 0,
-      path: "/",
-    })
-  );
+export async function clearRefreshTokenCookie() {
+  const cookieStore = await cookies();
+  cookieStore.set("refreshToken", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 0,
+    path: "/",
+  });
 }
 
 export async function getRefreshTokenFromCookie(): Promise<string | undefined> {
